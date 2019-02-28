@@ -7,6 +7,11 @@ class Api::ParamsExamplesController < ApplicationController
     render "query_params.json.jbuilder"
   end
 
+  def segment_params_method
+    @output_thing = "yo"
+    render "segment_params.json.jbuilder"
+  end
+
   def query_name_method
     input_name = params["the_name"] || "(no name provided)"
     @output_message = input_name.upcase
