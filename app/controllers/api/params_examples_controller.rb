@@ -8,7 +8,7 @@ class Api::ParamsExamplesController < ApplicationController
   end
 
   def segment_params_method
-    @output_thing = "yo"
+    @output_thing = params["input_word"]
     render "segment_params.json.jbuilder"
   end
 
