@@ -18,4 +18,17 @@ class Api::ParamsExamplesController < ApplicationController
     end
     render "query_name.json.jbuilder"
   end
+
+  def query_guess_method
+    winning_number = 32
+    input_guess = params["my_guess"].to_i
+    if input_guess > winning_number
+      @output_message = "Too high"
+    elsif input_guess < winning_number
+      @output_message = "Too low"
+    else
+      @output_message = "Just right"
+    end
+    render "query_guess.json.jbuilder"
+  end
 end
