@@ -6,4 +6,16 @@ class Api::ParamsExamplesController < ApplicationController
     @output_message2 = "The name is #{input_name}"
     render "query_params.json.jbuilder"
   end
+
+  def query_name_method
+    input_name = params["the_name"] || "(no name provided)"
+    @output_message = input_name.upcase
+    # if input_name[0].upcase == "A"
+    if input_name.upcase.starts_with?("A")
+      @output_second_message = "Hey your name starts with a!"
+    else
+      @output_second_message = ""
+    end
+    render "query_name.json.jbuilder"
+  end
 end
